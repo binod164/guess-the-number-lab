@@ -7,7 +7,7 @@ const game = {
     this.secretNum = Math.floor(Math.random() * 
       (this.biggestNum - this.smallestNum + 1)) + this.smallestNum
       
-      console.log(this.secretNum);
+      
       while(this.prevGuesses.length === 0 || this.prevGuesses[this.prevGuesses.length - 1] !== this.secretNum){
         this.prevGuesses.push(this.getGuess());
         this.render();
@@ -40,4 +40,3 @@ game.render = function(){
         }
 }
 
-// game.play();
