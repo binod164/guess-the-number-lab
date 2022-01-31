@@ -6,7 +6,7 @@ const game = {
   play: function() {
     this.secretNum = Math.floor(Math.random() * 
       (this.biggestNum - this.smallestNum + 1)) + this.smallestNum
-
+      
       do{
         this.prevGuesses.push(this.getGuess());
         this.render();
@@ -16,11 +16,9 @@ const game = {
       // while(this.prevGuesses.length === 0 || this.guess !== this.secretNum){
       //   this.prevGuesses.push(this.getGuess());
       //   this.render();
-        
       // }
 
-     
-      return; 
+          return; 
   }
 }
 game.prevGuesses = [];
@@ -36,13 +34,13 @@ game.getGuess = function(){
 game.render = function(){
   if(this.guess === this.secretNum){
         alert(`Congrats! You guessed the number in ${this.prevGuesses.length} guesses!`)
-       } else{
+  } else{
           if(this.guess>this.secretNum){
-            alert(`Your guess is too high. Previous guesses:${this.prevGuesses.join()}`)
+            alert(`Your guess is too high. Previous guesses:${this.prevGuesses.join(" , ")}`)
           }else{
-            alert(`Your guess is too low. Previous guesses: ${this.prevGuesses.join()}`)
+            alert(`Your guess is too low. Previous guesses: ${this.prevGuesses.join(" , ")}`)
             
-         }
-        }
+          }
+    }
 }
 
