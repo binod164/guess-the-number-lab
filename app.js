@@ -6,32 +6,38 @@ const game = {
   play: function() {
     this.secretNum = Math.floor(Math.random() * 
       (this.biggestNum - this.smallestNum + 1)) + this.smallestNum
-      
-      
-      while(this.prevGuesses.length === 0 || this.prevGuesses[this.prevGuesses.length - 1] !== this.secretNum){
+
+      do{
         this.prevGuesses.push(this.getGuess());
         this.render();
-        
-      }
+      }while(this.guess !== this.secretNum)
 
+      //Using while loop
+      // while(this.prevGuesses.length === 0 || this.guess !== this.secretNum){
+      //   this.prevGuesses.push(this.getGuess());
+      //   this.render();
+        
+      // }
+
+     
       return; 
   }
 }
 game.prevGuesses = [];
 
 game.getGuess = function(){
-  let guess = parseInt(prompt( `Enter a guess between ${this.smallestNum} and ${this.biggestNum}`));
-  while(isNaN(guess)===true || guess>this.biggestNum || guess<this.smallesttNum){ 
-    guess = parseInt(prompt( `Re - Enter a guess between ${this.smallestNum} and ${this.biggestNum}`));
+  this.guess = parseInt(prompt( `Enter a guess between ${this.smallestNum} and ${this.biggestNum}`));
+  while(isNaN(this.guess)===true || this.guess>this.biggestNum || this.guess<this.smallesttNum){ 
+    this.guess = parseInt(prompt( `Please re-enter a guess between ${this.smallestNum} and ${this.biggestNum}`));
   }
-  return guess;
+  return this.guess;
 }
 
 game.render = function(){
-  if(this.prevGuesses[this.prevGuesses.length - 1] === this.secretNum){
-        alert(`Congrats! You guessed the number in ${this.prevGuesses.length}!`)
+  if(this.guess === this.secretNum){
+        alert(`Congrats! You guessed the number in ${this.prevGuesses.length} guesses!`)
        } else{
-          if(this.prevGuesses[this.prevGuesses.length - 1]>this.secretNum){
+          if(this.guess>this.secretNum){
             alert(`Your guess is too high. Previous guesses:${this.prevGuesses.join()}`)
           }else{
             alert(`Your guess is too low. Previous guesses: ${this.prevGuesses.join()}`)
