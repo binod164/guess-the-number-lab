@@ -25,7 +25,7 @@ game.prevGuesses = [];
 
 game.getGuess = function(){
   this.guess = parseInt(prompt( `Enter a guess between ${this.smallestNum} and ${this.biggestNum}`));
-  while(isNaN(this.guess)===true || this.guess>this.biggestNum || this.guess<this.smallesttNum){ 
+  while(isNaN(this.guess)===true || this.guess>this.biggestNum || this.guess<this.smallestNum){ 
     this.guess = parseInt(prompt( `Please re-enter a guess between ${this.smallestNum} and ${this.biggestNum}`));
   }
   return this.guess;
@@ -43,4 +43,5 @@ game.render = function(){
           }
     }
 }
+
 
