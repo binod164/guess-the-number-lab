@@ -29,15 +29,16 @@ game.getGuess = function(){
   }
   return this.guess;
 }
-
 game.render = function(){
   if(this.guess === this.secretNum){
         alert(`Congrats! You guessed the number in ${this.prevGuesses.length} guesses!`)
   } else{
           if(this.guess>this.secretNum){
             alert(`Your guess is too high. Previous guesses:${this.prevGuesses.join(" , ")}`)
+            this.biggestNum = this.guess;//Bonus
           }else{
             alert(`Your guess is too low. Previous guesses: ${this.prevGuesses.join(" , ")}`)
+            this.smallestNum = this.guess;//Bonus
             
           }
     }
