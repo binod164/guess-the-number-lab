@@ -22,7 +22,7 @@ const game = {
   }
 }
 
-game.range = function(){ //Bonus
+game.range = function(){ //Bonus:Get the smallest and biggest number
   this.biggestNum = parseInt(prompt( `Enter biggest number`));
   while(isNaN(this.biggestNum)===true){ 
     this.biggestNum = parseInt(prompt( `Please re-enter biggest number`));
@@ -51,9 +51,8 @@ game.render = function(){
           }else{
             alert(`Your guess is too low. Previous guesses: ${this.prevGuesses.join(" , ")}`)
             this.smallestNum = this.guess;//Bonus
-            
           }
     }
 }
 
-
+game.play();
