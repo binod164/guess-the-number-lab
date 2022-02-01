@@ -4,9 +4,10 @@ const game = {
   smallestNum: 1,
   secretNum: null,
   play: function() {
+    
     this.secretNum = Math.floor(Math.random() * 
       (this.biggestNum - this.smallestNum + 1)) + this.smallestNum
-      
+      console.log(this.secretNum);
       do{
         this.prevGuesses.push(this.getGuess());
         this.render();
@@ -17,12 +18,10 @@ const game = {
       //   this.prevGuesses.push(this.getGuess());
       //   this.render();
       // }
-
-          return; 
   }
 }
 game.prevGuesses = [];
-
+game.guess = null;
 game.getGuess = function(){
   this.guess = parseInt(prompt( `Enter a guess between ${this.smallestNum} and ${this.biggestNum}`));
   while(isNaN(this.guess)===true || this.guess>this.biggestNum || this.guess<this.smallestNum){ 
@@ -43,5 +42,4 @@ game.render = function(){
           }
     }
 }
-
 
