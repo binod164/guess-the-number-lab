@@ -1,10 +1,11 @@
 const game = {
   title: 'Guess the Number!',
-  biggestNum: 100,
-  smallestNum: 1,
+  biggestNum: null,
+  smallestNum: null,
   secretNum: null,
   play: function() {
-    
+
+    this.range()
     this.secretNum = Math.floor(Math.random() * 
       (this.biggestNum - this.smallestNum + 1)) + this.smallestNum
       
@@ -19,6 +20,17 @@ const game = {
       //   this.render();
       // }
   }
+}
+
+game.range = function(){ //Bonus
+  this.biggestNum = parseInt(prompt( `Enter biggest number`));
+  while(isNaN(this.biggestNum)===true){ 
+    this.biggestNum = parseInt(prompt( `Please re-enter biggest number`));
+}
+  this.smallestNum = parseInt(prompt( `Enter smallest number`));
+  while(isNaN(this.smallestNum)===true || this.smallestNum > this.biggestNum-2){ 
+    this.smallestNum = parseInt(prompt( `Please re-enter smallest number`));
+}
 }
 game.prevGuesses = [];
 game.guess = null;
@@ -43,3 +55,5 @@ game.render = function(){
           }
     }
 }
+
+
